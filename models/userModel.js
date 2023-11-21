@@ -38,5 +38,14 @@ module.exports = (sequelize,DataTypes) => {
             allowNull: true
           }
         });
+
+        User.associate = (models) => {
+          User.hasMany(models.Appliance, {foreignKey: 'userId'});
+          User.hasMany(models.Goal, {foreignKey: 'userId'});
+          User.hasMany(models.CostEstimation, {foreignKey: 'userId'})
+       
+
+        }
+
         return User
 }

@@ -34,5 +34,9 @@ const CostEstimation = sequelize.define('costEstimation', {
       allowNull: true
     }
   })
+
+  CostEstimation.associate = (models) => {
+    CostEstimation.hasMany(models.EnergyRate, {foreignKey: 'costEstimationId'});
+  }
   return CostEstimation
 }
